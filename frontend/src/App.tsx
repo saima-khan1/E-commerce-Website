@@ -9,11 +9,14 @@ import Orders from "./pages/Orders";
 import PlaceOrder from "./pages/PlaceOrder";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import NavBar from "./components/NavBar";
+import { Container } from "@mui/material";
 
 function App() {
   return (
     <>
-      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <Container maxWidth="xl">
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<Collection />} />
@@ -25,7 +28,7 @@ function App() {
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/orders" element={<Orders />} />
         </Routes>
-      </div>
+      </Container>
     </>
   );
 }
