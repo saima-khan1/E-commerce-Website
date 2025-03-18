@@ -10,13 +10,22 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import NavBar from "./components/NavBar";
-import { Container } from "@mui/material";
+
+import { Box, Container } from "@mui/material";
 
 function App() {
   return (
     <>
-      <Container maxWidth="xl">
-        <NavBar />
+      <NavBar />
+      <Box
+        sx={{
+          minHeight: "100vh",
+          px: { xs: 2, sm: 4, md: 6 },
+          py: { xs: 2, sm: 4 },
+          backgroundColor: "#f5f5f5",
+          overflow: "hidden",
+        }}
+      >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<Collection />} />
@@ -28,7 +37,7 @@ function App() {
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/orders" element={<Orders />} />
         </Routes>
-      </Container>
+      </Box>
     </>
   );
 }
