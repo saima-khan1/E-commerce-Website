@@ -20,8 +20,7 @@ function App() {
       <Box
         sx={{
           minHeight: "100vh",
-          px: { xs: 2, sm: 4, md: 6 },
-          py: { xs: 2, sm: 4 },
+
           backgroundColor: "#f5f5f5",
           overflow: "hidden",
         }}
