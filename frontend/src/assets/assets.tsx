@@ -73,8 +73,16 @@ import razorpay_logo from "./razorpay_logo.png";
 import stripe_logo from "./stripe_logo.png";
 import cross_icon from "./cross_icon.png";
 import logo from "./logo.png";
+import image1 from "./image (1).png";
+import image2 from "./image (3).png";
+import image4 from "./image (4).png";
+import image5 from "./image (5).png";
 
 export const assets = {
+  image1,
+  image2,
+  image4,
+  image5,
   logo,
   hero_img,
   cart_icon,
