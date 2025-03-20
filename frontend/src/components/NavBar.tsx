@@ -6,9 +6,12 @@ import {
   List,
   MenuItem,
   Typography,
-  Container,
+  Drawer,
 } from "@mui/material";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import Divider from "@mui/material/Divider";
+
 import { useState } from "react";
 
 const linkStyle = {
@@ -22,7 +25,7 @@ const activeLinkStyle = {
 };
 
 const NavBar = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
     <Box
       sx={{
@@ -165,14 +168,69 @@ const NavBar = () => {
         </Box>
       </List>
       <IconButton
-        onClick={() => setVisible(true)}
-        sx={{ display: { xs: "block", sm: "block", md: "none" } }} // Visible on xs, sm; Hidden on md, lg, xl
-        size="large"
-        aria-label="show 4 new mails"
+        onClick={() => setOpen(true)}
+        sx={{ display: { xs: "block", sm: "block", md: "none" } }}
+        aria-label="open drawer"
+        edge="end"
         color="inherit"
       >
-        <MenuOutlinedIcon />
+        <MenuIcon />
       </IconButton>
+      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+        <Box
+          sx={{
+            width: { xs: "350px", sm: "600px", md: "30px" },
+
+            display: { xs: "block", sm: "block", md: "none" },
+          }}
+        />
+        <ChevronLeftIcon
+          onClick={() => setOpen(false)}
+          sx={{ fontSize: "2.5rem" }}
+        />
+        <List>
+          <MenuItem sx={{ textDecoration: "none" }}>
+            <NavLink
+              onClick={() => setOpen(false)}
+              to={"./"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              HOME
+            </NavLink>
+          </MenuItem>
+          <Divider />
+          <MenuItem>
+            <NavLink
+              onClick={() => setOpen(false)}
+              to={"./collection"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              COLLECTION
+            </NavLink>
+          </MenuItem>
+          <Divider />
+          <MenuItem>
+            <NavLink
+              onClick={() => setOpen(false)}
+              to={"./about"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              ABOUT
+            </NavLink>
+          </MenuItem>
+          <Divider />
+          <MenuItem>
+            <NavLink
+              onClick={() => setOpen(false)}
+              to={"./contact"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              CONTACT
+            </NavLink>
+          </MenuItem>
+          <Divider />
+        </List>
+      </Drawer>
     </Box>
   );
 };
