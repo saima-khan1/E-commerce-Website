@@ -39,16 +39,18 @@ const NavBar = () => {
         alignItems: "center",
       }}
     >
-      <Box
-        component="img"
-        src={assets.logo}
-        sx={{
-          width: { xs: "150px", sm: "150px", md: "249px" },
-          height: { xs: "49px", sm: "40px", md: "71px" },
-          marginTop: { xs: "10px", sm: "25px", md: "15px" },
-          alignItems: "center",
-        }}
-      />
+      <Link to={"/"}>
+        <Box
+          component="img"
+          src={assets.logo}
+          sx={{
+            width: { xs: "150px", sm: "150px", md: "249px" },
+            height: { xs: "49px", sm: "40px", md: "71px" },
+            marginTop: { xs: "10px", sm: "25px", md: "15px" },
+            alignItems: "center",
+          }}
+        />
+      </Link>
       <Box
         sx={{
           flexGrow: 1,

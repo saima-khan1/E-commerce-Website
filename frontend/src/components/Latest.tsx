@@ -9,17 +9,11 @@ interface Product {
   description: string;
   price: number;
   image: string[];
-  category: string;
-  subCategory: string;
-  sizes: string[];
-  date: number;
-  bestseller: boolean;
 }
 
 const Latest = () => {
   const shopContext = useContext(ShopContext);
 
-  // Ensure shopContext is not null before accessing properties
   if (!shopContext) {
     return <div>Loading...</div>;
   }

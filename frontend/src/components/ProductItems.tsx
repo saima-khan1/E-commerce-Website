@@ -12,7 +12,10 @@ const ProductItems: React.FC<Props> = ({ id, image, name, price }) => {
   const { currency } = useContext(ShopContext);
   return (
     <Box>
-      <Link to={`/product/${id}`}>
+      <Link
+        to={`/product/${id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
         <img src={image[0]} alt="image" />
         <p>{name}</p>
         <p>
