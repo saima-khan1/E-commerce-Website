@@ -25,7 +25,7 @@ const Landing = () => {
       >
         Latest Arrivals
       </Typography>
-      <NavLink to={"/Latest Arrivals"}>
+      <NavLink to={"/LatestArrival"}>
         <Typography
           variant="h4"
           sx={{

@@ -10,6 +10,7 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import NavBar from "./components/NavBar";
+import LatestArrival from "./pages/LatestArrival";
 
 import { Box, Container } from "@mui/material";
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/latestarrival" element={<LatestArrival />} />
         </Routes>
       </Box>
     </>
