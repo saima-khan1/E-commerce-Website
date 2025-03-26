@@ -25,7 +25,7 @@ const BestSellers = () => {
       >
         Best Sellers
       </Typography>
-      <NavLink to={"/Latest Arrivals"}>
+      <NavLink to={"/BestSellers"}>
         <Typography
           variant="h4"
           sx={{

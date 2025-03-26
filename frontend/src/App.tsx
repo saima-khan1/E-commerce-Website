@@ -13,6 +13,9 @@ import NavBar from "./components/NavBar";
 import LatestArrival from "./pages/LatestArrival";
 
 import { Box, Container } from "@mui/material";
+import BestCollection from "./pages/BestSellers";
+import BestSellers from "./components/BestSellers";
+import BestSellersDetail from "./components/BestSellersDetail";
 
 function App() {
   return (
@@ -37,6 +40,7 @@ function App() {
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/latestarrival" element={<LatestArrival />} />
+          <Route path="/bestsellers" element={<BestSellersDetail />} />
         </Routes>
       </Box>
     </>
