@@ -1,4 +1,5 @@
 import BestSellers from "../components/BestSellers";
+import Footer from "../components/Footer";
 import KidsCollections from "../components/KidsCollection";
 import Landing from "../components/Landing";
 import MensCollection from "../components/MensCollection";
@@ -15,6 +16,7 @@ const Home = () => {
       <BestSellers />
       <Policy />
       <NewsLetter />
+      <Footer />
     </div>
   );
 };

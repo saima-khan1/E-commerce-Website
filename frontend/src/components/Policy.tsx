@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import { assets } from "../assets/assets";
-import NewsLetterBox from "./NewsLetterBox";
 
 const Policy = () => {
   return (
