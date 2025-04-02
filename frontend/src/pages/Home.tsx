@@ -16,7 +16,6 @@ const Home = () => {
       <BestSellers />
       <Policy />
       <NewsLetter />
-      <Footer />
     </div>
   );
 };

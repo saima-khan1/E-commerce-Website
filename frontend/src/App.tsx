@@ -16,6 +16,7 @@ import { Box, Container } from "@mui/material";
 import BestCollection from "./pages/BestSellers";
 import BestSellers from "./components/BestSellers";
 import BestSellersDetail from "./components/BestSellersDetail";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/latestarrival" element={<LatestArrival />} />
           <Route path="/bestsellers" element={<BestSellersDetail />} />
         </Routes>
+        <Footer />
       </Box>
     </>
   );

@@ -8,14 +8,15 @@ const Footer = () => {
         sx={{
           display: { xs: "grid", md: "grid", sm: "grid" },
           gridTemplateColumns: "Repeat(4,1fr)",
-          justifyItems: "end",
+          gridTemplateRows: { xs: "Repeat(1,1fr)", sm: "Repeat(1,1fr)" },
+          justifyItems: { xs: "end", md: "end", sm: "end" },
 
           //   justifyContent: {
           //     md: "space-evenly",
           //     xs: "space-between",
           //     sm: "space-between",
           //   },
-          alignItems: "center",
+          alignItems: { xs: "center", md: "center", sm: "center" },
           marginTop: "9rem",
         }}
       >
