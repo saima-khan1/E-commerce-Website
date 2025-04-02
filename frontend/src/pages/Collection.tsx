@@ -18,17 +18,54 @@ interface Product {
   description: string;
   price: number;
   image: string[];
+  category: string;
+  subCategory: string;
 }
 
 const Collection = () => {
   const { products } = useContext(ShopContext);
-  console.log(products);
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
-  const [showFilters, setShowFilters] = useState(false);
 
+  // const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [filterProducts, setfilterProducts] = useState<Product[]>([]);
+  const [category, setCategory] = useState<string[]>([]);
+  const [subCategory, setSubCategory] = useState<string[]>([]);
+
+  const toggleCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    setCategory((prev) =>
+      prev.includes(value)
+        ? prev.filter((item) => item !== value)
+        : [...prev, value]
+    );
+  };
+  const toggleSubCategory = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    setSubCategory((prev) =>
+      prev.includes(value)
+        ? prev.filter((item) => item !== value)
+        : [...prev, value]
+    );
+  };
+
+  const applyFilters = () => {
+    let productsCopy = products.slice();
+    if (category.length > 0) {
+      productsCopy = productsCopy.filter((item) =>
+        category.includes(item.category)
+      );
+    }
+    if (subCategory.length > 0) {
+      productsCopy = productsCopy.filter((item) =>
+        subCategory.includes(item.subCategory)
+      );
+    }
+    setfilterProducts(productsCopy);
+  };
   useEffect(() => {
-    setAllProducts(products);
-  });
+    applyFilters();
+  }, [category, subCategory]);
 
   return (
     <>
@@ -45,13 +82,13 @@ const Collection = () => {
                 </Typography>
                 <List>
                   <MenuItem>
-                    <Checkbox /> Men
+                    <Checkbox value="Men" onChange={toggleCategory} /> Men
                   </MenuItem>
                   <MenuItem>
-                    <Checkbox /> Women
+                    <Checkbox value="Women" onChange={toggleCategory} /> Women
                   </MenuItem>
                   <MenuItem>
-                    <Checkbox /> Kids
+                    <Checkbox value="Kids" onChange={toggleCategory} /> Kids
                   </MenuItem>
                 </List>
               </CardContent>
@@ -65,13 +102,16 @@ const Collection = () => {
                 </Typography>
                 <List>
                   <MenuItem>
-                    <Checkbox /> Topwear
+                    <Checkbox value="Topwear" onChange={toggleSubCategory} />{" "}
+                    Topwear
                   </MenuItem>
                   <MenuItem>
-                    <Checkbox /> Bottomwear
+                    <Checkbox value="bottomwear" onChange={toggleSubCategory} />{" "}
+                    Bottomwear
                   </MenuItem>
                   <MenuItem>
-                    <Checkbox /> Winterwear
+                    <Checkbox value="Winterwear" onChange={toggleSubCategory} />{" "}
+                    Winterwear
                   </MenuItem>
                 </List>
               </CardContent>
@@ -85,7 +125,7 @@ const Collection = () => {
           justifyContent="center"
           alignItems="center"
         >
-          {allProducts.map((item, index) => (
+          {filterProducts.map((item, index) => (
             <ProductItems
               key={index}
               id={item._id}
