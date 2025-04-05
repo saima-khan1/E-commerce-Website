@@ -6,7 +6,6 @@ import {
   Box,
   Card,
   CardContent,
-  Container,
   List,
   MenuItem,
   Typography,
@@ -23,7 +22,7 @@ interface Product {
 }
 
 const Collection = () => {
-  const { products } = useContext(ShopContext);
+  const { products, search, showSearch } = useContext(ShopContext);
 
   // const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [filterProducts, setfilterProducts] = useState<Product[]>([]);
@@ -56,6 +55,11 @@ const Collection = () => {
         category.includes(item.category)
       );
     }
+    if (search && showSearch) {
+      productsCopy = productsCopy.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
     if (subCategory.length > 0) {
       productsCopy = productsCopy.filter((item) =>
         subCategory.includes(item.subCategory)
@@ -65,7 +69,7 @@ const Collection = () => {
   };
   useEffect(() => {
     applyFilters();
-  }, [category, subCategory]);
+  }, [category, subCategory, search, showSearch]);
 
   return (
     <>
@@ -102,15 +106,15 @@ const Collection = () => {
                 </Typography>
                 <List>
                   <MenuItem>
-                    <Checkbox value="Topwear" onChange={toggleSubCategory} />{" "}
+                    <Checkbox value="Topwear" onChange={toggleSubCategory} />
                     Topwear
                   </MenuItem>
                   <MenuItem>
-                    <Checkbox value="bottomwear" onChange={toggleSubCategory} />{" "}
+                    <Checkbox value="bottomwear" onChange={toggleSubCategory} />
                     Bottomwear
                   </MenuItem>
                   <MenuItem>
-                    <Checkbox value="Winterwear" onChange={toggleSubCategory} />{" "}
+                    <Checkbox value="Winterwear" onChange={toggleSubCategory} />
                     Winterwear
                   </MenuItem>
                 </List>

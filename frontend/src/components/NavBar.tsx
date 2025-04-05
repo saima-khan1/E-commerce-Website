@@ -12,7 +12,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Divider from "@mui/material/Divider";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ShopContext } from "../context/ShopContext";
 
 const linkStyle = {
   textDecoration: "none",
@@ -26,6 +27,7 @@ const activeLinkStyle = {
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
+  const { setShowSearch } = useContext(ShopContext);
   return (
     <Box
       sx={{
@@ -135,6 +137,7 @@ const NavBar = () => {
         >
           <MenuItem sx={{ padding: { xs: "5px", sm: "10px" } }}>
             <Box
+              onClick={() => setShowSearch(true)}
               component="img"
               src={assets.search_icon}
               sx={{

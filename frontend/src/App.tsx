@@ -17,11 +17,13 @@ import BestCollection from "./pages/BestSellers";
 import BestSellers from "./components/BestSellers";
 import BestSellersDetail from "./components/BestSellersDetail";
 import Footer from "./components/Footer";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
     <>
       <NavBar />
+      <SearchBar />
       <Box
         sx={{
           minHeight: "100vh",
