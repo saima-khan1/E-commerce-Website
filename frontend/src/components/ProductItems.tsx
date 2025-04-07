@@ -7,8 +7,17 @@ interface Props {
   image: string[];
   name: string;
   price: number;
+  description: string;
+  sizes: string[];
 }
-const ProductItems: React.FC<Props> = ({ id, image, name, price }) => {
+const ProductItems: React.FC<Props> = ({
+  id,
+  image,
+  name,
+  price,
+  description,
+  sizes,
+}) => {
   const { currency } = useContext(ShopContext);
   return (
     <Box>
@@ -22,6 +31,8 @@ const ProductItems: React.FC<Props> = ({ id, image, name, price }) => {
           {currency}
           {price}
         </p>
+        <p>{description}</p>
+        <p>{sizes}</p>
       </Link>
     </Box>
   );
