@@ -18,10 +18,12 @@ import BestSellers from "./components/BestSellers";
 import BestSellersDetail from "./components/BestSellersDetail";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <NavBar />
       <SearchBar />
       <Box
